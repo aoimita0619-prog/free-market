@@ -1,0 +1,88 @@
+.mypage__profile {
+    max-width: 800px;
+    margin: 25px auto;
+    display: flex;
+    align-items: center;
+}
+
+.user__img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    background-color: #d9d9d9;
+}
+
+span {
+    margin-left: 80px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.profile-btn {
+    margin-left: auto;
+}
+
+
+.profile-update {
+    text-align: center;
+    width: 25%;
+    color: #ff5555;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #FF5555;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.profile-group {
+    margin-bottom: 15px;
+}
+
+.mypage-content__heading {
+    display: flex;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+
+.mypage-content__heading a {
+    text-decoration: none;
+    color: #d9d9d9;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.mypage-content__heading .active {
+    color: #ff5555;
+    font-weight: bold;
+}
+
+.mypage-content__item {
+    max-width: 80%;
+    padding: 15px 60px;
+    display: flex;
+}
+
+.mypage__item {
+    margin-right: 30px;
+    margin-bottom: 20%;
+}
+
+.item__img {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.item__item {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

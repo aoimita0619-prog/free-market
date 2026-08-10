@@ -1,0 +1,49 @@
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.verify__content {
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.verify-content__header {
+    text-align: center;
+}
+
+.verify-content__btn {
+    width: 30%;
+    margin: 40px auto 0;
+    padding: 5px;
+    background-color: #d9d9d9;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 40px;
+    color: #0073CC;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
