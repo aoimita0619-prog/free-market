@@ -15,7 +15,7 @@
 　・購入機能<br>
 　・stripeによるコンビニ支払い、カード支払い機能<br>
 # 環境構築
-1.フリーマーケット用ディレクトリの作成、移動<br>
+  1.フリーマーケット用ディレクトリの作成、移動<br>
     mkdir free-market<br>
     cd free-market<br>
   2.フリーマーケットをクローン<br>
@@ -34,25 +34,26 @@
   6.データベースのマイグレーションとシーダーを実行<br>
    php artisan migrate:fresh --seed<br>
   7.シンボリックリンクの作成<br>
-   php artisan storage:link
+   php artisan storage:link<br>
+   
 stripe設定<br>
-1.	stripe dashboardにログインし、テスト環境に切り替える<br>
-2.	開発者→APIキーから公開可能キー（pk_test_...）とシークレットキー（sk_test_...）を取得する。.envに公開可能キーとシークレットキーを以下のように書く。<br>
-STRIPE_KEY=pk_test_xxxxxxxxx<br>
-STRIPE_SECRET=sk_test_xxxxxxxxx<br>
-3.	LaravelにStripe PHP SDKを入れる<br>
-docker compose exec php bash<br>
-composer require stripe/stripe-php<br>
-4.	stripe CLIをダウンロード（ダウンロード済の場合、省略）<br>
-curl -L https://github.com/stripe/stripe-cli/releases/latest/download/stripe_linux_x86_64.tar.gz -o stripe.tar.gz<br>
-ファイルを展開する<br>
-tar -xvf stripe.tar.gz<br>
-stripeをコマンドで使えるようにする<br>
-sudo mv stripe /usr/local/bin/stripe<br>
-5.	Stripeにログイン<br>
-stripe login<br>
-ブラウザを開き、Your pairing code is: xxxx-xxxx-xxxxに書かれているコードを入力する<br>
-6. Webhookを使う<br>
+ 1.	stripe dashboardにログインし、テスト環境に切り替える<br>
+ 2.	開発者→APIキーから公開可能キー（pk_test_...）とシークレットキー（sk_test_...）を取得する。.envに公開可能キーとシークレットキーを以下のように書く。<br>
+    STRIPE_KEY=pk_test_xxxxxxxxx<br>
+    STRIPE_SECRET=sk_test_xxxxxxxxx<br>
+ 3.	LaravelにStripe PHP SDKを入れる<br>
+    docker compose exec php bash<br>
+    composer require stripe/stripe-php<br>
+ 4.	stripe CLIをダウンロード（ダウンロード済の場合、省略）<br>
+    curl -L https://github.com/stripe/stripe-cli/releases/latest/download/stripe_linux_x86_64.tar.gz -o stripe.tar.gz<br>
+    ファイルを展開する<br>
+    tar -xvf stripe.tar.gz<br>
+    stripeをコマンドで使えるようにする<br>
+    sudo mv stripe /usr/local/bin/stripe<br>
+ 5.	Stripeにログイン<br>
+    stripe login<br> 
+    ブラウザを開き、Your pairing code is: xxxx-xxxx-xxxxに書かれているコードを入力する<br>
+ 6. Webhookを使う<br>
     stripe listen --forward-to localhost/stripe/webhook<br>
     実行すると、Ready! Your webhook signing secret is whsec_...と出てくるので、envに以下のように書く<br>
 　　STRIPE_WEBHOOK_SECRET=whsec_...<br>
@@ -123,7 +124,7 @@ post_code：444-4444<br>
 address：福岡県福岡市中央区天神44<br>
 building：天神テストビル444<br>
 # テストについて
-主に以下の機能をテストした<br>。
+主に以下の機能をテストした。<br>
 ・会員登録<br>
 　名前、メールアドレス、パスワード、確認用パスワードを入力して、アカウントが作成できる<br>
 ・メール認証<br>
