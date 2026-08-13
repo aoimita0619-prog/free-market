@@ -15,10 +15,10 @@
 　・購入機能<br>
 　・stripeによるコンビニ支払い、カード支払い機能<br>
 # 環境構築
-1.お問い合わせフォーム用ディレクトリの作成、移動<br>
+1.フリーマーケット用ディレクトリの作成、移動<br>
     mkdir free-market<br>
     cd free-market<br>
-  2.お問い合わせフォームをクローン<br>
+  2.フリーマーケットをクローン<br>
   https://github.com/aoimita0619-prog/free-market/tree/main<br>
   3.ディレクトリの移動<br>
     cd free-market<br>
@@ -43,21 +43,16 @@ STRIPE_SECRET=sk_test_xxxxxxxxx<br>
 3.	LaravelにStripe PHP SDKを入れる<br>
 docker compose exec php bash<br>
 composer require stripe/stripe-php<br>
-4.	config/services.php にStripeを追加<br>
-'stripe' => [
-    'key' => env('STRIPE_KEY'),
-    'secret' => env('STRIPE_SECRET'),
-],<br>
-5.	stripe CLIをダウンロード（ダウンロード済の場合、省略）<br>
+4.	stripe CLIをダウンロード（ダウンロード済の場合、省略）<br>
 curl -L https://github.com/stripe/stripe-cli/releases/latest/download/stripe_linux_x86_64.tar.gz -o stripe.tar.gz<br>
 ファイルを展開する<br>
 tar -xvf stripe.tar.gz<br>
 stripeをコマンドで使えるようにする<br>
 sudo mv stripe /usr/local/bin/stripe<br>
-6.	Stripeにログイン<br>
+5.	Stripeにログイン<br>
 stripe login<br>
 ブラウザを開き、Your pairing code is: xxxx-xxxx-xxxxに書かれているコードを入力する<br>
-　7. Webhookを使う<br>
+6. Webhookを使う<br>
     stripe listen --forward-to localhost/stripe/webhook<br>
     実行すると、Ready! Your webhook signing secret is whsec_...と出てくるので、envに以下のように書く<br>
 　　STRIPE_WEBHOOK_SECRET=whsec_...<br>
