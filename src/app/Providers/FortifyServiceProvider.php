@@ -23,7 +23,16 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->instance(
+        \Laravel\Fortify\Contracts\RegisterResponse::class,
+        new class implements \Laravel\Fortify\Contracts\RegisterResponse
+        {
+            public function toResponse($request)
+            {
+                return redirect()->route('verification.notice');
+            }
+        }
+        );
     }
 
     /**
@@ -53,7 +62,22 @@ class FortifyServiceProvider extends ServiceProvider
             return view('register');
         });
 
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
+
          Fortify::authenticateUsing(function ($request) {
+          $request->validate(
+          [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+          ],
+          [
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスは正しい形式で入力してください',
+            'password.required' => 'パスワードを入力してください',
+          ]
+        );
 
          $user = User::where('email', $request->email)->first();
 

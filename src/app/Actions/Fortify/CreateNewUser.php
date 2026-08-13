@@ -11,7 +11,7 @@ use Laravel\Fortify\Rules\Password;
 
 class CreateNewUser implements CreatesNewUsers
 {
-    use PasswordValidationRules;
+    
 
     /**
      * Validate and create a newly registered user.
@@ -47,5 +47,9 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        $user->sendEmailVerificationNotification();
+
+        return $user;
     }
 }

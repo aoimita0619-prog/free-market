@@ -90,21 +90,13 @@ class PurchaseController extends Controller
         'building'  => $user->building,
     ]);
 
-    /*
-     * 支払い方法
-     * 1 = コンビニ
-     * 2 = カード
-     */
+ 
     $method = $request->method;
 
     $paymentMethod = $method == 1
         ? 'konbini'
         : 'card';
 
-
-    /*
-     * ① purchasesテーブルに保存
-     */
     $purchase = Purchase::create([
         'user_id' => $user->id,
         'item_id' => $item->id,
@@ -112,7 +104,6 @@ class PurchaseController extends Controller
 
         'method' => $method,
 
-        // まだ決済完了していない
         'status' => 'pending',
 
         'post_code' => $address['post_code'],
@@ -124,9 +115,7 @@ class PurchaseController extends Controller
     Stripe::setApiKey(config('services.stripe.secret'));
 
 
-    /*
-     * ② Stripe Checkoutを作成
-     */
+  
     $session = Session::create([
         'payment_method_types' => [
             $paymentMethod,
@@ -156,9 +145,7 @@ class PurchaseController extends Controller
 
         'cancel_url' => route('purchase.cancel', $item),
 
-        /*
-         * ③ Webhookで使う情報
-         */
+      
         'metadata' => [
             'purchase_id' => $purchase->id,
             'item_id' => $item->id,
@@ -167,17 +154,14 @@ class PurchaseController extends Controller
     ]);
 
 
-    /*
-     * ④ Stripe Session IDを保存
-     */
     $purchase->update([
         'stripe_session_id' => $session->id,
     ]);
 
-
-    /*
-     * ⑤ Stripe Checkoutへ
-     */
+    $purchase->item->update([
+                'is_sold' => '1',
+    ]);
+   
     return redirect($session->url);
 }
 

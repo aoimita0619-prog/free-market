@@ -37,9 +37,7 @@ class StripeWebhookController extends Controller
         }
 
 
-        /*
-         * Checkout Session 完了
-         */
+     
         if ($event->type === 'checkout.session.completed') {
 
             $session = $event->data->object;
@@ -68,9 +66,6 @@ class StripeWebhookController extends Controller
             }
 
 
-            /*
-             * purchasesから取得
-             */
             $purchase = Purchase::find($purchaseId);
 
             if (!$purchase) {
@@ -85,9 +80,6 @@ class StripeWebhookController extends Controller
             }
 
 
-            /*
-             * 二重処理防止
-             */
             if ($purchase->status === 'completed') {
 
                 return response()->json([
@@ -96,19 +88,9 @@ class StripeWebhookController extends Controller
             }
 
 
-            /*
-             * 購入完了
-             */
+    
             $purchase->update([
                 'status' => 'completed',
-            ]);
-
-
-            /*
-             * 商品を売却済みにする
-             */
-            $purchase->item->update([
-                'is_sold' => '1',
             ]);
 
 

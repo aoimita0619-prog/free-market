@@ -31,7 +31,7 @@
         
         <div class="address-group">
             <label for="building">建物名</label>
-            <input type="building" id="building" name="building" value="{{ old('building', $user->building) }}" required>
+            <input type="building" id="building" name="building" value="{{ old('building', $user->building) }}" >
         </div>
         
         <button class= "update__btn" type="submit">更新する</button>

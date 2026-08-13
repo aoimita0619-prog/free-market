@@ -37,14 +37,15 @@
         <a href="{{ route('sell') }}">出品</a>
      </p>
     @else
-      <p class="login-btn">
-        <a href="{{ route('login') }}">ログイン</a>
-      </p>
+      <form method='POST' action="{{ route('logout') }}">
+        @csrf 
+        <button type="submit" class="log-btn">ログアウト</button>
+      </form>
       <p class="mypage__link">
-        <a href="{{ route('register') }}">マイページ</a>
+        <a href="{{ route('mypage') }}">マイページ</a>
      </p>
      <p class="sell__link">
-        <a href="{{ route('register') }}">出品</a>
+        <a href="{{ route('sell') }}">出品</a>
      </p>
     @endif
     @else
@@ -52,10 +53,10 @@
         <a href="{{ route('login') }}">ログイン</a>
       </p>
       <p class="mypage__link">
-        <a href="{{ route('register') }}">マイページ</a>
+        <a href="{{ route('login') }}">マイページ</a>
       </p>
      <p class="sell__link">
-        <a href="{{ route('register') }}">出品</a>
+        <a href="{{ route('login') }}">出品</a>
      </p>
   @endauth
 
