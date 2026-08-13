@@ -23,7 +23,7 @@
   3.ディレクトリの移動<br>
     cd free-market<br>
   4.パッケージをインストール<br>
-  　 docker-compose up -d –build<br>
+  　 docker compose up --build<br>
 5.データベースのマイグレーションとシーダーを実行<br>
      php artisan migrate:fresh --seed<br>
 stripe設定<br>
