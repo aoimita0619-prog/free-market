@@ -19,7 +19,7 @@
     mkdir free-market<br>
     cd free-market<br>
   2.お問い合わせフォームをクローン<br>
-  　git clone https://github.com/aoimita0619-prog/contact-form.git<br>
+  https://github.com/aoimita0619-prog/free-market/tree/main<br>
   3.ディレクトリの移動<br>
     cd free-market<br>
   4.パッケージをインストール<br>
