@@ -23,9 +23,18 @@
   3.ディレクトリの移動<br>
     cd free-market<br>
   4.パッケージをインストール<br>
-  　 docker-compose up -d --build<br>
-5.データベースのマイグレーションとシーダーを実行<br>
-     php artisan migrate:fresh --seed<br>
+  　 docker-compose up -d --build<br> 
+　5.Laravel環境構築<br>
+ 　docker-compose exec php bash<br>
+　 composer install<br>
+  6.envファイル作成<br>
+  　cp .env.example .env<br>
+  7.アプリケーションキーの作成<br>
+   php artisan key:generate<br>
+  6.データベースのマイグレーションとシーダーを実行<br>
+   php artisan migrate:fresh --seed<br>
+  7.シンボリックリンクの作成<br>
+   php artisan storage:link
 stripe設定<br>
 1.	stripe dashboardにログインし、テスト環境に切り替える<br>
 2.	開発者→APIキーから公開可能キー（pk_test_...）とシークレットキー（sk_test_...）を取得する。.envに公開可能キーとシークレットキーを以下のように書く。<br>
