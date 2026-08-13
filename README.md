@@ -67,7 +67,7 @@ stripe login<br>
   ・webhook<br>
  
 # ER図
-　<img width="561" height="711" alt="ER" src="https://github.com/user-attachments/assets/7201054b-6106-43eb-8604-368c41835e2d" />
+<img width="791" height="1081" alt="Image" src="https://github.com/user-attachments/assets/cb2255c0-9ed2-42ed-9050-378901b170b5" />
 
 # URL
   ・商品一覧画面（トップ）:http://localhost/<br>
