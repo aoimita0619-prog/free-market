@@ -19,7 +19,7 @@
     mkdir free-market<br>
     cd free-market<br>
   2.フリーマーケットをクローン<br>
-  https://github.com/aoimita0619-prog/free-market/tree/main<br>
+    git clone git@github.com:aoimita0619-prog/free-market.git<br>
   3.ディレクトリの移動<br>
     cd free-market<br>
   4.パッケージをインストール<br>
